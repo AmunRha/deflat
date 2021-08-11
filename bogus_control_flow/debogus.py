@@ -6,6 +6,7 @@ sys.path.append("..")
 import argparse
 import struct
 import angr
+import magic
 
 import am_graph
 from util import *
@@ -34,7 +35,20 @@ def main():
     target_function = cfg.functions.get(start)
     supergraph = am_graph.to_supergraph(target_function.transition_graph)
 
-    base_addr = project.loader.main_object.mapped_base >> 12 << 12
+    # Get user defined base address or load base address according to file type
+    filetype = magic.from_file(filename)
+    if args.baseaddr:
+        base_addr = int(args.baseaddr,16)
+    else:
+        if "PE" in filetype:
+            base_addr = 0x400C00
+        elif "ELF" in filetype:
+            base_addr = project.loader.main_object.mapped_base >> 12 << 12
+        else:
+            print("===== File type not defined =====")
+            sys.exit(-1)
+    print("File type: %s" % filetype)
+    print("Base addr: %#x" % base_addr)
 
     state = project.factory.blank_state(addr=target_function.addr, remove_options={
                                         angr.sim_options.LAZY_SOLVES})
