@@ -106,6 +106,7 @@ Successful! The recovered file: ./target_bogus_recovered
 
 - `python3`
 - `angr`
+- `python-magic`
 
 ## Reference
 
