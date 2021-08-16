@@ -106,13 +106,14 @@ Usually when installing `angr`, `angr-managerment` (GUI of `angr`) is not instal
 
 #### `multi.py`
 This script allows user to deobfuscate multiple functions in one single run provided all the addresses. 
+
 For usage of the script type `python3 multi.py -h`
 
 ## Requirements
 
--`python3`
--`angr`
--`python-magic`
+- `python3`
+- `angr`
+- `python-magic`
 
 ## Reference
 
