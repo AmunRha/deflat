@@ -102,7 +102,7 @@ The `am_graph.py` script is from [angr-management/utils/graph.py](https://github
 
 > A super transition graph is a graph that looks like IDA Pro's CFG, where calls to returning functions do not terminate basic blocks.
 
-Usually when installing `angr`, `angr-managerment` (GUI of `angr`) is not installed, so here directly put [angr-management/utils/graph.py](https://github.com/angr /angr-management/blob/master/angrmanagement/utils/graph.py) to the current directory and rename it to `am_graph.py`.
+Usually when installing `angr`, `angr-managerment` (GUI of `angr`) is not installed, so here directly put [angr-management/utils/graph.py](https://github.com/angr/angr-management/blob/master/angrmanagement/utils/graph.py) to the current directory and rename it to `am_graph.py`.
 
 #### `multi.py`
 This script allows user to deobfuscate multiple functions in one single run provided all the addresses. 
